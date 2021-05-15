@@ -10,7 +10,7 @@ const io = require("socket.io")(process.env.PORT, {
     socket.on("get-codeId", (codeId,user_name) => {
       socket.join(codeId);
       socket.on("disconnect", () => {
-        console.log(disconnected:-${codeId});
+        console.log(`disconnected:-${codeId}`);
       });
   
       socket.broadcast.to(codeId).emit("recieve-name", user_name);
