@@ -16,7 +16,9 @@ const io = require("socket.io")(process.env.PORT, {
       socket.broadcast.to(codeId).emit("recieve-name", user_name);
   
       socket.on("send-changes", (code, language) => {
+      setTimeout(() => {
         socket.broadcast.to(codeId).emit("recieve-changes", code, language);
-      });
+      }, 3000);
     });
   });
+});
